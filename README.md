@@ -5,7 +5,7 @@ Aquest projecte conté exercicis pràctics per aprendre els conceptes de program
 ## Requisits
 
 - Node.js (v20 o superior)
-- pnpm
+- npm
 
 ## Instal·lació
 
