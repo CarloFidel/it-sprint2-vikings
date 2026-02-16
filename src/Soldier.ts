@@ -1,4 +1,4 @@
-export class Soldier {
+export class Soldier implements Soldiers {
   health: number;
   strength: number;
 
@@ -10,16 +10,15 @@ export class Soldier {
   attack() {
     return this.strength;
   }
-  receiveDamage(damage: Soldiers["damage"]) {
+  receiveDamage(damage: number) {
     this.health = this.health - damage;
   }
 }
 
-type Soldiers = {
+interface Soldiers {
   health: number;
-  strenght: number;
+  strength: number;
   attack: Attack;
-  damage: number;
 };
 
-type Attack = () => Soldiers["strenght"];
+type Attack = () => Soldiers["strength"];
