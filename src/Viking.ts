@@ -12,13 +12,13 @@ export class Viking extends Soldier {
   override receiveDamage(damage: number): string {
     let message = "";
     super.receiveDamage(damage);
-    this.health != 0
+    this.health > 0
       ? (message = `${this.name} has received ${damage} points of damage`)
       : (message = `${this.name} has died in act of combat`);
 
     return message;
   }
-  
+
   battleCry(): string {
     return "Odin Owns You All!";
   }

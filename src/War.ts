@@ -22,18 +22,30 @@ export class War {
     const battleResult = saxon.receiveDamage(damage);
 
     if (saxon.health <= 0) {
-      this.saxonArmy = this.saxonArmy.filter((saxonSoldier) => saxonSoldier !== saxon);
+      this.saxonArmy = this.saxonArmy.filter(
+        (saxonSoldier) => saxonSoldier !== saxon,
+      );
     }
-    let saxonPowerful: Saxon
-    this.saxonArmy.forEach((saxon) => {
-        if (saxon.strength === viking.strength){
-            saxonPowerful = saxon
-        }
-    });
     return battleResult;
   }
 
-  saxonAttack() {}
+  saxonAttack() {
+    const viking =
+      this.vikingArmy[Math.floor(Math.random() * this.vikingArmy.length)];
+    const saxon =
+      this.saxonArmy[Math.floor(Math.random() * this.saxonArmy.length)];
+    const damage = saxon.attack();
+    const battleResult = viking.receiveDamage(damage);
 
-  showStatus() {}
+    if (viking.health <= 0) {
+      this.vikingArmy = this.vikingArmy.filter(
+        (vikingSoldier) => vikingSoldier !== viking,
+      );
+    }
+    return battleResult;
+  }
+
+  showStatus() {
+    if(this.saxonArmy.length === 0) return 'Vikings have won the war of the century!'
+  }
 }
