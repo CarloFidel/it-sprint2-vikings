@@ -8,9 +8,10 @@ export class Saxon extends Soldier {
   override receiveDamage(damage: number): string {
     let message = ''
     super.receiveDamage(damage);
-    this.health !== 0
+    this.health > 0
       ? (message = `A Saxon has received ${damage} points of damage`)
       : (message = "A Saxon has died in combat");
+      
     return message;
   }
 }
